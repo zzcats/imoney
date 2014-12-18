@@ -4,9 +4,13 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>welcome</title>
 </head>
 <body>
-
+<div class="jumbotron">
+  <h1>imoney月花费计划</h1>
+  <p>欢迎使用vmojing-web控制台，点击上方导航栏，选择你需要的服务</p>
+  <p><a class="btn btn-primary btn-lg" href="http://vmojing.com/" role="button">微魔镜</a></p>
+</div>
 </body>
 </html>
