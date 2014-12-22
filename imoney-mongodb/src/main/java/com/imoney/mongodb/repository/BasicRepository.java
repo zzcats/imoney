@@ -200,8 +200,12 @@ public class BasicRepository<T> implements DAO<T>{
 	@Override
 	public T findById(Object id) {
 		// TODO Auto-generated method stub
+		return findOneByName(id,"_id");
+	}
+	@Override
+	public T findOneByName(Object id,String name){
 		DBQuery query  = new DBQuery();
-		query.equalsOperation("_id", id);
+		query.equalsOperation(name, id);
 		T t = findOne(findQuery(query));
 		return t;
 	}
