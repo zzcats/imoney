@@ -28,6 +28,7 @@
 		<commons-beanutils.version>1.9.2</commons-beanutils.version>
 		<commons.version>3.1</commons.version>
 		<shiro.version>1.2.3</shiro.version>
+		<guava.version>17.0</guava.version>
 	</properties>
 	<dependencies>
 		<!-- spring framework start -->
@@ -90,6 +91,14 @@
 			<version>${commons.version}</version>
 		</dependency>
 		<!-- log end -->
+		
+		<!-- GENERAL UTILS begin -->
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>${guava.version}</version>
+		</dependency>
+		<!-- GENERAL UTILS end -->
 	</dependencies>
 	<modules>
 		<module>imoney-mongodb</module>
