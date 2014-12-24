@@ -21,12 +21,14 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.bson.types.ObjectId;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import com.google.common.base.Objects;
 import com.imoney.mongodb.entity.User;
 
 public class ShiroDbRealm extends AuthorizingRealm {
 
+	@Autowired
 	protected AccountService accountService;
 
 	/**
@@ -35,12 +37,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	@Override
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
+		String testString=token.getUsername();
+		System.out.println(testString);
 		User user = accountService.findUserByLoginName(token.getUsername());
-		if (user != null) {			
-			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()), user.getPassword(), getName());
-		} else {
-			throw new UnknownAccountException();
-		}
+		System.out.println(user.getLoginName());
+		return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()), user.getPassword(), getName());
 	}
 
 	/**
