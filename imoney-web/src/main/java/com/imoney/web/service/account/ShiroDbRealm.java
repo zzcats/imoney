@@ -36,16 +36,11 @@ public class ShiroDbRealm extends AuthorizingRealm {
 	protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken authcToken) throws AuthenticationException {
 		UsernamePasswordToken token = (UsernamePasswordToken) authcToken;
 		User user = accountService.findUserByLoginName(token.getUsername());
-		if (user != null) {
-			if(token.getUsername().equals(user.getLoginName()) && token.getPassword().toString().equals(user.getPassword())){
-				return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()), user.getPassword(), getName());
-			}
-			throw new IncorrectCredentialsException();
+		if (user != null) {			
+			return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()), user.getPassword(), getName());
 		} else {
 			throw new UnknownAccountException();
 		}
-		
-
 	}
 
 	/**
