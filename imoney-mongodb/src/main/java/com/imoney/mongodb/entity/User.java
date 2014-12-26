@@ -1,5 +1,6 @@
 package com.imoney.mongodb.entity;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -32,5 +33,9 @@ public class User extends AbstractDocument{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
+	@Override
+	public String toString() {
+		// TODO Auto-generated method stub
+		return ToStringBuilder.reflectionToString(this);
+	}
 }

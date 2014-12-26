@@ -9,6 +9,8 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter
 import org.springframework.web.servlet.view.JstlView;
 import org.springframework.web.servlet.view.UrlBasedViewResolver;
 
+import com.imoney.web.service.account.ShiroDbRealm;
+
 @Configuration
 @EnableWebMvc
 public class WebAppConfiguration extends WebMvcConfigurerAdapter{
@@ -28,4 +30,5 @@ public class WebAppConfiguration extends WebMvcConfigurerAdapter{
 		resolver.setViewClass(JstlView.class);
 		return resolver;
 	}
+
 }

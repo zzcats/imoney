@@ -11,9 +11,9 @@ import com.imoney.mongodb.MongoRootConfiguration;
 
 
 @Configuration
-@Import({WebAppConfiguration.class,MongoBeansConfiguration.class,MongoConfiguration.class})
-@ImportResource({"classpath:applicationContext-shiro.xml"})
 @ComponentScan({"com.imoney.web","com.imoney.mongodb"})
+@ImportResource({"classpath:applicationContext-shiro.xml"})
+@Import({MongoBeansConfiguration.class,MongoConfiguration.class,WebAppConfiguration.class,WebBeanConfiguration.class})
 public class WebRootConfiguration {
 
 }

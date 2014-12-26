@@ -14,11 +14,11 @@ public class MongoBeansConfiguration {
 	 * topic
 	 */
 	@Bean
-	DBConvertor<User> userConvertor(){
+	public DBConvertor<User> userConvertor(){
 		return new DBConvertor<>(User.class);
 	}
 	@Bean
-	BasicRepository<User> userDao(){
+	public BasicRepository<User> userDao(){
 		return new BasicRepository<User>(User.class,userConvertor());
 	}
 }

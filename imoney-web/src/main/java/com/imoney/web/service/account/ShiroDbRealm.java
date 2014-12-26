@@ -21,15 +21,18 @@ import org.apache.shiro.authz.SimpleAuthorizationInfo;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
 import org.bson.types.ObjectId;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
 import com.google.common.base.Objects;
 import com.imoney.mongodb.entity.User;
 
 public class ShiroDbRealm extends AuthorizingRealm {
-
-	@Autowired
-	protected AccountService accountService;
+	private static Logger log = LoggerFactory.getLogger(ShiroDbRealm.class);
+	
+	AccountService accountService;
 
 	/**
 	 * 认证回调函数,登录时调用.
@@ -40,7 +43,8 @@ public class ShiroDbRealm extends AuthorizingRealm {
 		String testString=token.getUsername();
 		System.out.println(testString);
 		User user = accountService.findUserByLoginName(token.getUsername());
-		System.out.println(user.getLoginName());
+		log.info(user.getLoginName());
+		System.out.println("show user:"+user);
 		return new SimpleAuthenticationInfo(new ShiroUser(user.getId(), user.getLoginName(), user.getName()), user.getPassword(), getName());
 	}
 
