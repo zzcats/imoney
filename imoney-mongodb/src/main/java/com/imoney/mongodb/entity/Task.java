@@ -12,12 +12,12 @@ import org.springframework.data.mongodb.core.mapping.Document;
  */
 @Document
 public class Task extends AbstractDocument{
-	Double limit;//消费计划额度
-	Double payment;//已支出
-	Date start;
-	Date end;
-	ObjectId uid;
-	String uniMonth;//201405,unique.range:20140501-20140531
+	private Double limit;//消费计划额度
+	private Double payment;//已支出
+	private Date start;
+	private Date end;
+	private ObjectId uid;
+	private String uniMonth;//201405,unique.range:20140501-20140531
 	public Double getLimit() {
 		return limit;
 	}

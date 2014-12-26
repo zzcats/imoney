@@ -11,10 +11,10 @@ import org.bson.types.ObjectId;
  * @author v11
  */
 public class Group extends AbstractDocument{
-	ObjectId owner;
-	List<ObjectId> uid;
-	String name;
-	Date createAt;
+	private ObjectId owner;
+	private List<ObjectId> uid;
+	private String name;
+	private Date createAt;
 	public ObjectId getOwner() {
 		return owner;
 	}
