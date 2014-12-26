@@ -17,13 +17,10 @@ public class WebBeanConfiguration {
 	// }
 	@Bean
 	AccountService accountService(){
-		System.out.println("创建：create accountService");
 		AccountService accountService = new AccountService();
 		BasicRepository<User> userDao = (BasicRepository<User>) SpringConfigSingleton.getBean("userDao");
-		System.out.println(userDao);
-		System.out.println("ha"+userDao.findOneByName("v11yu", "loginName"));
 		accountService.setUserDao(userDao);
-		return new AccountService();
+		return accountService;
 		
 	}
 }

@@ -32,7 +32,7 @@ import com.imoney.mongodb.entity.User;
 public class ShiroDbRealm extends AuthorizingRealm {
 	private static Logger log = LoggerFactory.getLogger(ShiroDbRealm.class);
 	
-	AccountService accountService;
+	protected AccountService accountService;
 
 	/**
 	 * 认证回调函数,登录时调用.
